@@ -22,7 +22,7 @@ const DefaultStyledDiv = styled.div`
 const StyledDiv = styled(DefaultStyledDiv)(props=>({borderColor:'red'}))
 
 
-const Div = ({ style = {}, type }) => {
+const Row = ({ style = {}, type }) => {
     // const bgColor = type === 'dark' 
     //         ? '#c5aeb4' : '#fce2c2';
     return (
@@ -33,4 +33,4 @@ const Div = ({ style = {}, type }) => {
     )
 }
 
-export default Div;
+export default Row;

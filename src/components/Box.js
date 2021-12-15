@@ -1,6 +1,6 @@
 // ./src/components/Box.js
 import React from 'react';
-import Div from './Div';
+import Row from './Row';
 
 const Box = () => {
     const divStyle = {
@@ -9,8 +9,8 @@ const Box = () => {
 
     return (
         <>
-            <Div type="dark" />
-            <Div style={ divStyle }/>
+            <Row type="dark" />
+            <Row style={ divStyle }/>
         </>
     );
 }
