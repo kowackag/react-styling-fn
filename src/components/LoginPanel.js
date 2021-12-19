@@ -1,20 +1,37 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 
+const LoginPanel = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [errors, setErrors] = useState([]);
 
+    const handleSumbit = e => {
+        e.preventDefault();
+        console.log(password, email);
+        setEmail('');
+        setPassword('');
+    }
 
-const LoginPanel = props => {
-    return (
+       return (
         <StyledLoginPanel>
             <Title>Login Form</Title>
-            <form>
+            <form onSubmit = {handleSumbit }>
                 <Row>
                     <Label fieldName="email">Email</Label>
-                    <Field name="email"/>
+                    <Field 
+                        name="email"
+                        value = {email}
+                        onChange = {e=> setEmail(e.target.value)}
+                    />
                 </Row>
                 <Row>
                     <Label fieldName="password">Password</Label>
-                    <Field name="password"/>
+                    <Field 
+                        name="password"
+                        value = {password}
+                        onChange = {e=>setPassword(e.target.value)}
+                    />
                 </Row>
                 <RowWithButton>
                     <Submit/>
@@ -23,7 +40,6 @@ const LoginPanel = props => {
         </StyledLoginPanel>
     )
 }
-
 
 const StyledLoginPanel = styled.section`
     border: 1px solid #dcdcdc;
@@ -58,7 +74,6 @@ const Field = styled.input.attrs(({name, type})=> ({
         border-color:#57c7f3;
     }
 `
-
 const Submit = styled.input.attrs(()=> ({
     type: 'submit'
 }))`
