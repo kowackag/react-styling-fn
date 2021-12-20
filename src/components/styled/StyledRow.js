@@ -1,7 +1,14 @@
-import styled, {css} from 'styled-components';
+import styled, {css, keyframes} from 'styled-components';
+
+const loadAnimation = keyframes`
+    0% {opacity:0; transform: translateX(-100vw)}
+    25% {opacity:.25; transform: translateX(-50vw)}
+    75% {opacity:.25; transform: translateX(-100vw)}
+    75% {opacity:1; transform: translateX(0}`;
 
 const DefaultStyledDiv = styled.div`
-        --color-alfa: #6cb2d1;
+        animation:${loadAnimation} 3s;
+        --color-alfa: ${props => props.theme.colorAlfa};
         border: 2px solid var(--color-alfa);
         color: var(--color-alfa);
         padding: 20px;
@@ -15,7 +22,10 @@ const DefaultStyledDiv = styled.div`
             background-color: #fcc5c2;
         }
         h1 {font-size:20px}
-        p 
+
+        @media ${props => props.theme.media.tablet} {
+            margin:0 40px;
+        }
 `
 const StyledRow = styled(DefaultStyledDiv)(props=>props.style)
 

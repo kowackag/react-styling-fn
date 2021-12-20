@@ -5,7 +5,7 @@ import styled, {css} from 'styled-components';
 import StyledRow from './../components/styled/StyledRow'
 
 // const DefaultStyledDiv = styled.div`
-//         --color-alfa: #6cb2d1;     
+//         --color-alfa: ${props => props.theme.colorAlfa};     
 //         border: 2px solid var(--color-alfa);
 //         color: var(--color-alfa);
 //         padding: 20px;
